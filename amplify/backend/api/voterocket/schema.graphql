@@ -17,4 +17,3 @@ type Subscription {
   onCastVote: Candidate
     @aws_subscribe(mutations: ["castVote"])
 }
-

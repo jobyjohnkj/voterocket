@@ -44,13 +44,14 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container mx-auto md:w-3/5 px-3">
-          <div className="text-grey-darkest md:text-lg italic mt-2 mb-3">Which is your favourite AWS serverless service?</div>
+          <div className="text-grey-darkest md:text-lg italic mt-2 mb-3">How do you rate this service?</div>
           <div className="flex py-2">
             { this.state.candidates.map((candidate,idx) =>
               <Candidate
                 key={candidate.id}
                 id={candidate.id}
                 name={candidate.name}
+                description={candidate.description}                
                 votes={candidate.votes}
                 color={candidateColors[idx]}
               />
@@ -105,11 +106,11 @@ class Candidate extends Component {
   render() {
     return (
       <button
-        className={`focus:outline-none flex-1 text-white pt-4 pb-3 px-3 mx-1 text-xs md:text-lg rounded bg-${this.props.color}-dark hover:bg-${this.props.color}-darker`}
+        className={`focus:outline-none flex-1 text-white py-2 px-3 mx-1 text-sm md:h-12 h-16 rounded bg-${this.props.color}-dark hover:bg-${this.props.color}-darker`}
         onClick={() =>
           this.handleSubmit(this.props)
         }>
-        <b>{this.props.name}</b> <p className="py-1"><b>{this.props.votes}</b></p>
+        <b>{this.props.description}</b> <p className="py-1"><b>{this.props.votes}</b></p>
       </button>
     );
   }
